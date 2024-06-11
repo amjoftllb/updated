@@ -50,33 +50,38 @@ const userSchema = new Schema(
         message: "Please enter a valid date of birth (YYYY-MM-DD)",
       },
     },
-    phoneNumber: {
-      type: Number,
-      required: [true, "Please enter a Mobile Number"],
-    },
     department: {
       type: String,
       required: [true, "Please select a department"],
-      enum: [
-        "Computer IT",
-        "Mechanical",
-        "Cevil",
-        "Chemical",
-        "Other",
-      ],
+      enum: ["Computer IT", "Mechanical", "Cevil", "Chemical", "Other"],
     },
     email: {
-      type: Number,
-      required: [true, "Please enter a Mobile Number"],
+      type: String,
+      required: [true, "Email is required"],
+      unique: true,
+      trim: true,
+      match: [
+        /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/,
+        "Please enter a valid email address",
+      ],
     },
     password: {
       type: String,
       required: [true, "Please enter your password"],
-      minLength: [8, "Password should be greater then 8 charaters"],
+      minlength: [8, "Password should be at least 8 characters long"],
+      validate: {
+        validator: function (v) {
+          return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(
+            v
+          );
+        },
+        message: (props) =>
+          "Password must be at least 8 characters long and include at least one uppercase letter, one lowercase letter, one number, and one special character.",
+      },
     },
     isAdmin: {
       type: Boolean,
-      default: true,
+      default: false,
     },
     refreshToken: {
       type: String,
@@ -99,11 +104,9 @@ userSchema.pre("save", async function (next) {
     return next(error);
   }
 });
-
 userSchema.methods.isPasswordCorrect = async function (password) {
   return await bcrypt.compare(password, this.password);
 };
-
 userSchema.methods.generateAccessToken = function () {
   return jwt.sign(
     {
