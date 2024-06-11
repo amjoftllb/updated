@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const validator = require("validator");
 
 const userSchema = new Schema(
   {
@@ -11,34 +12,69 @@ const userSchema = new Schema(
     },
     firstName: {
       type: String,
-      required: true,
+      required: [true, "Please enter your name"],
+      maxLength: [20, "lastName cannot exceed 20 charaters"],
+      minLength: [4, "firstName should have more then 4 charaters"],
     },
     lastName: {
       type: String,
-      required: true,
+      required: [true, "Please enter your name"],
+      maxLength: [20, "lastName cannot exceed 20 charaters"],
+      minLength: [4, "lastName should have more then 4 charaters"],
     },
     gender: {
       type: String,
-      enum: ["Male", "Female"],
-      required: true,
+      required: [true, "Please select a gender"],
+      enum: ["Male", "Female", "Others"],
     },
     birthDate: {
-      type: Date,
-      required: true,
+      type: String,
+      required: [true, "Please enter a date of birth"],
+      validate: {
+        validator: function (value) {
+          const dateRegex = /^\d{4}-(0[1-9]|1[0-2])-([12][0-9]|0[1-9]|3[01])$/;
+          if (!dateRegex.test(value)) {
+            return false;
+          }
+          const parts = value.split("-");
+          const year = parseInt(parts[0], 10);
+          const month = parseInt(parts[1], 10);
+          const day = parseInt(parts[2], 10);
+          const date = new Date(year, month - 1, day);
+          return (
+            date.getDate() === day &&
+            date.getMonth() === month - 1 &&
+            date.getFullYear() === year
+          );
+        },
+        message: "Please enter a valid date of birth (YYYY-MM-DD)",
+      },
     },
-    hobbies: {
-      type: [],
-      required: true,
+    phoneNumber: {
+      type: Number,
+      required: [true, "Please enter a Mobile Number"],
+    },
+    department: {
+      type: String,
+      required: [true, "Please select a department"],
+      enum: [
+        "Computer IT",
+        "Mechanical",
+        "Cevil",
+        "Chemical",
+        "Other",
+      ],
     },
     email: {
-      type: String,
-      required: true,
+      type: Number,
+      required: [true, "Please enter a Mobile Number"],
     },
     password: {
       type: String,
-      required: true,
+      required: [true, "Please enter your password"],
+      minLength: [8, "Password should be greater then 8 charaters"],
     },
-    isVerified: {
+    isAdmin: {
       type: Boolean,
       default: true,
     },
