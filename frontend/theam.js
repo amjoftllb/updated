@@ -1,3 +1,6 @@
+  // const toggleTheme = () => {
+  //   themeName === "dark" ? setThemeName("light") : setThemeName("dark");
+  // };
 
 import React, { useEffect, createContext, useState } from "react";
 
