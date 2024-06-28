@@ -1,0 +1,8 @@
+div.rename-form-container {
+  inline-size: 20%;
+  block-size: 20%;
+  padding-inline: 5%;
+  padding-block: 2%;
+  inset-inline-start: 40%;
+  inset-block-start: 30%;
+}

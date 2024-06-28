@@ -1,0 +1,94 @@
+.data-file-container {
+  position: relative;
+  block-size: 20%;
+  /* inline-size: 100%; */
+  /* margin-inline-end: 2.5%; */
+  padding-inline: 5%;
+  padding-block: 1%;
+  background-color: var(--secondary-background);
+  border: 1px solid var(--primary-outline);
+  border-radius: 8px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  min-block-size: 17.5%;
+
+  /* gap: 1em; */
+}
+
+.file-info,
+.update-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.update-info {
+  align-self: flex-end;
+}
+
+.data-file-control-container {
+  position: absolute;
+  inset-block-start: 8%;
+  inset-inline-end: 2%;
+  display: flex;
+  flex-direction: row;
+  gap: 0.4em;
+}
+
+.data-file-popper-container {
+  background-color: #fff;
+  border: 1px solid var(--primary-outline);
+  padding-block: 0.25%;
+  inline-size: 7em;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+}
+
+.data-file-popper-content {
+  display: flex;
+  flex-direction: column;
+  font-family: "Inter", sans-serif;
+  /* font-family: ; */
+
+  gap: 0.125em;
+  align-items: center;
+  color: var(--primary-text);
+}
+.popper-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-inline: 1%;
+  inline-size: calc(99% - 1px);
+  cursor: pointer;
+}
+
+.popper-option.alert {
+  color: var(--alert-text);
+}
+
+.popper-option:hover {
+  background-color: var(--primary-background);
+}
+
+.popper-option.alert:hover {
+  background-color: var(--neutral);
+}
+
+div.rename-form-container,
+div.update-modal-content-container {
+  border-radius: 5px;
+  background-color: #fff;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+button.data-file-btn {
+  background-color: var(--secondary-background);
+  border-radius: 8px;
+  /* padding-inline: 30%; */
+}

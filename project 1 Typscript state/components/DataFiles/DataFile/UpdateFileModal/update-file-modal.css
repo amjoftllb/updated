@@ -1,0 +1,83 @@
+div.update-modal-content-container {
+  inline-size: 100%;
+  block-size: 80%;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+}
+
+div.update-file-modal-container {
+  max-width: unset;
+  max-height: unset;
+  inline-size: 50%;
+  block-size: 45%;
+  padding-inline: 1%;
+  padding-block: 1%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.update-error-confirmation-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  block-size: 100%;
+  gap: 1em;
+  text-align: center;
+}
+
+.confirmation-title {
+  color: var(--alert-text);
+}
+.confirmation-title,
+.confirmation-content {
+  /* block-size: 25%; */
+}
+.actions-container {
+  display: flex;
+  flex-direction: row;
+  inline-size: 100%;
+  align-items: space-between;
+  justify-content: center;
+  gap: 25%;
+  block-size: 30%;
+  /* gap: 1em; */
+}
+
+button.confirm-action-btn {
+  inline-size: 30%;
+  block-size: 100%;
+  border-radius: 15px;
+  border: 1px solid var(--primary-outline);
+  color: var(--primary-text);
+  text-transform: unset;
+  padding-inline: 5%;
+  transition: 50ms ease-out;
+}
+
+button.confirm-action-btn:hover {
+  background-color: var(--primary-background);
+  transition: 150ms ease-in;
+}
+
+button.confirm-action-btn.selected:hover {
+  background-color: var(--btn-hover);
+  transition: 150ms ease-in;
+}
+
+button.confirm-action-btn.selected {
+  background-color: var(--primary-btn);
+  color: #fff;
+  transition: 50ms ease-out;
+}
+
+.update-error-content {
+  display: flex;
+  flex-direction: column;
+  block-size: 30%;
+  justify-content: space-between;
+  align-items: center;
+  /* gap: 1em; */
+}

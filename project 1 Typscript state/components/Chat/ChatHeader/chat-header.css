@@ -1,0 +1,9 @@
+.chat-header-container {
+  block-size: 10%;
+  inline-size: 85%;
+  padding-inline: 5%;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

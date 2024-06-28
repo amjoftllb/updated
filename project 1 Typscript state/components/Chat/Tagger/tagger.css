@@ -1,0 +1,36 @@
+.tagger-container {
+  position: absolute;
+  /* inline-size: 95%; */
+  display: flex;
+  flex-direction: row;
+  gap: 0.25em;
+  inset-inline-end: 3.5%;
+  inset-block-end: 3%;
+  /* align-self: flex-end; */
+}
+
+.tag-btn-container {
+  /* position: absolute; */
+  block-size: 20px;
+  inline-size: 19px;
+  padding-inline: 10%;
+  padding-block: 10%;
+  border: 1px solid var(--primary-outline);
+  border-radius: 5px;
+  cursor: pointer;
+  /* block-size: fit-content; */
+  transition: 50ms ease-out;
+}
+
+.tag-btn-container:hover {
+  background-color: var(--primary-background);
+  transition: 150ms ease-in;
+}
+
+.f-icon {
+  fill: white;
+}
+
+.f-icon.tag {
+  fill: #beaee2;
+}

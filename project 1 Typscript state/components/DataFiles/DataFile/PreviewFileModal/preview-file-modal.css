@@ -1,0 +1,23 @@
+div.preview-file-modal-container {
+  max-width: unset;
+  max-height: unset;
+  inline-size: 50%;
+  block-size: 45%;
+  /* padding-inline: 1%; */
+  /* padding-block: 1%; */
+  display: flex;
+  align-items: center;
+  text-align: center;
+
+  inset-block-end: 10%;
+}
+
+div.preview-modal-content-container {
+  inline-size: 100%;
+  /* block-size: 100%; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1em;
+}

@@ -1,0 +1,34 @@
+.sidebar-container {
+  inline-size: 20%;
+  border-inline-end: 2px solid var(--divider);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* padding-inline: 1.5%; */
+  padding-block: 0.5%;
+}
+
+h4.sidebar-title {
+  text-align: left;
+  font-size: 28px;
+  color: var(--primary-text);
+  block-size: 10%;
+  padding-inline: 7%;
+  margin-block-start: 2%;
+  align-self: flex-start;
+}
+
+.back-container {
+  block-size: 5%;
+  inline-size: 90%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* justify-content: center; */
+
+  gap: 1em;
+  font-weight: 600;
+  font-size: 12px;
+  justify-content: flex-start;
+}

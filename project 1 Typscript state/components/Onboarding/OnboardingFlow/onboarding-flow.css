@@ -1,0 +1,212 @@
+.onboarding-flow-container {
+  display: flex;
+  inline-size: 100%;
+  block-size: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.onboarding-flow-content-container {
+  display: flex;
+  flex-direction: column;
+  inline-size: 50%;
+  block-size: 70%;
+  align-items: center;
+  /* align-content: center; */
+  justify-content: space-between;
+}
+
+.onboarding-header-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  margin-block-start: 1%;
+  position: absolute;
+  inset-block: 2%;
+}
+
+.onboarding-flow-figure-logo {
+  inline-size: 10em;
+}
+
+span.progress-bar {
+  background-color: #f6f6f6;
+}
+
+span.fbar {
+  background-color: var(--primary-outline);
+}
+
+.progress-bar-container {
+  inline-size: 100%;
+}
+
+.file-upload-content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  block-size: 60%;
+
+  border: 1px solid var(--primary-outline);
+  background-color: var(--file-upload-back);
+  padding-inline: 15%;
+  padding-block: 10%;
+  border-radius: 5px;
+}
+
+.file-upload-label-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  block-size: 40%;
+  margin-block-end: 2em;
+}
+
+.file-upload-content-container.selected {
+  flex-direction: row;
+  padding-inline: 7.5%;
+  padding-block: 5%;
+  inline-size: 100%;
+  block-size: 10%;
+}
+
+.file-upload-content {
+  font-weight: 400;
+  color: var(--primary-text);
+}
+
+.file-upload-container {
+  block-size: 50%;
+  inline-size: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+.selected .file-btn {
+  block-size: 100%;
+  /* inline-size: 50%; */
+}
+
+.file-progress-container {
+  /* block-size: 5%; */
+  inline-size: 90%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  /* gap: 1em; */
+}
+.file-container {
+  margin-inline-start: 5%;
+  inline-size: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.f-icon.csv {
+  inline-size: 100%;
+}
+
+.csv-icon-container {
+  inline-size: 7%;
+  /* block-size: 100%; */
+}
+span.file-progress-bar-container {
+  inline-size: 98%;
+}
+
+.onboarding-header-container {
+  block-size: 10%;
+}
+
+h5.question-content {
+  block-size: 50%;
+}
+
+.question-fetch-content {
+  block-size: 50%;
+}
+
+.confirmation-btn-container {
+  /* block-size: 53px; */
+  /* inline-size: 52px; */
+
+  padding-inline: 0.25em;
+  padding-block: 0.25em;
+  border: 1px solid var(--primary-outline);
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* block-size: fit-content; */
+  transition: 50ms ease-out;
+}
+
+.confirmation-btn {
+  inline-size: 1.5em;
+}
+
+.confirmation-container {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+}
+
+.question-content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  block-size: 20%;
+}
+
+.onboarding-flow-textfield-container {
+}
+
+div.fieldset-container {
+  inline-size: 100%;
+}
+
+.fieldset-container fieldset {
+  border: 1px solid var(--primary-outline);
+}
+
+.fieldset-container fieldset:hover {
+  border: 1px solid var(--primary-outline);
+}
+
+div.base-root-container:hover {
+  border: unset;
+}
+
+div.onboarding-flow-textfield-container {
+  padding: 3%;
+  border: 1px solid var(--primary-outline);
+  border-radius: 5px;
+}
+
+textarea.onboarding-flow-textfield {
+  color: var(--normal-text);
+}
+
+div.onbaording-user-textfield-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  inline-size: 100%;
+  gap: 1em;
+}
+
+h6.textfield-label {
+  font-size: 16px;
+}

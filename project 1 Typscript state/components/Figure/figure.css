@@ -1,0 +1,36 @@
+.figure-app {
+  font-family: "Inter", sans-serif;
+
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  color: var(--normal-text);
+  /* writing-mode: horizontal-tb; */
+  /* direction: r; */
+}
+
+.chat-container {
+  inline-size: 80%;
+  /* inset-inline: 15% 0; */
+  /* inset-block-start: 15%; */
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}

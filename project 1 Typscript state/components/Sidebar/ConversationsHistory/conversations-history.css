@@ -1,0 +1,60 @@
+.user-conversations {
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+  /* margin-inline-end: 20%; */
+  /* gap: 0.25em; */
+}
+
+.user-conversations-container {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  block-size: 90%;
+  inline-size: 100%;
+}
+.conversation-container.selected{
+  background-color: var(--primary-background);
+  /* filter: contrast(150%); */
+  transition: 0.1s ease-out;
+}
+.user-conversations-title {
+  block-size: 2.5%;
+  margin-block-end: 0.5em;
+  font-weight: 600;
+  align-self: flex-start;
+  margin-inline: 6%;
+}
+
+.new-conversation-container {
+  block-size: 7%;
+}
+
+.new-conversation {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-inline: 7%;
+  padding-inline: 6%;
+  padding-block: 2%;
+
+  border-radius: 5px;
+  border: 1px solid var(--primary-outline);
+  background-color: var(--primary-background);
+  cursor: pointer;
+}
+
+.user-conversation-label {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.empty-history {
+  margin-block-start: 100%;
+  color: var(--primary-text);
+  font-weight: 500;
+
+  inline-size: 100%;
+}

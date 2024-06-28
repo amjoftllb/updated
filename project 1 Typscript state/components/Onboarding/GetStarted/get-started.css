@@ -1,0 +1,29 @@
+.get-started-container {
+  inline-size: 100%;
+  block-size: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* gap: ; */
+}
+
+.get-started-content {
+  inline-size: 100%;
+  block-size: 25%;
+  /* inset-inline: 10%; */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.content-container {
+  inline-size: 100%;
+  block-size: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}

@@ -1,0 +1,34 @@
+.conversation-container {
+  line-height: 3em;
+  border-bottom: 1px solid var(--divider);
+  inline-size: 100%;
+  color: #333333;
+  /* inset-block: 1em; */
+  cursor: pointer;
+  transition: 0.3s ease-in;
+  /* inline-size: 90%; */
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.conversation-container:hover {
+  background-color: var(--primary-background);
+  /* filter: contrast(150%); */
+  transition: 0.1s ease-out;
+}
+
+.conversation-container.first {
+  border-top: 1px solid var(--divider);
+}
+
+.conversation-title {
+  inline-size: 85%;
+  text-wrap: nowrap;
+  overflow: hidden;
+
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
