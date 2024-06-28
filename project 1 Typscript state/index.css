@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body {
+  margin: 0;
+  display: flex;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: "Inter", sans-serif;
+
+  --disabled-btn: rgba(145, 145, 145, 0.6);
+  --primary: #dfd7f1;
+  --secondary: #f2eff9;
+  --primary-text: #beaee2;
+  --upload-data-file-btn-background: #beaee2;
+  --primary-btn: #beaee2;
+  --secondary-btn: #ffffff;
+  --normal-text: #333333;
+  --bold-primary-text: #8c6fcc;
+  --secondary-text: #222;
+  --btn: var(--primary-text);
+  --btn-hover: var(--bold-primary-text);
+  --secondary-btn-outline: var(--btn-hover);
+  --secondary-btn-outline-hover: #7856c3;
+  --primary-overlay: rgba(190, 174, 226, 0.05);
+  --primary-outline: #beaee2;
+  --primary-background: rgba(190, 174, 226, 0.2);
+  --secondary-background: rgba(190, 174, 226, 0.05);
+  --primary-outline2: #ded6f0;
+  --secondary-outline: #cec2e9;
+  --neutral: #f6f6f6;
+  --neutral-text: #6b6b6b;
+  --alert-text: rgba(226, 174, 174, 1);
+  --alert: rgba(226, 174, 174, 1);
+  --alert-2: rgba(217, 149, 149, 1);
+  --alert-3: rgba(208, 124, 124, 1);
+  --alert-background: rgba(247, 219, 240, 0.1);
+  --alert-hover: rgba(244, 224, 224, 1);
+  --divider: #dcdcdc;
+  --file-upload-back: rgba(247, 219, 240, 0.1);
+}
+
+button.MuiButtonBase-root {
+  font-family: "Inter", sans-serif;
+  padding: 0;
+  padding-inline: 0.75em;
+  padding-block: 0.25em;
+  /* min-width: 0; */
+  /* padding-inline: 2.5%;
+  padding-block: 2.5%; */
+}

@@ -1,0 +1,27 @@
+.csv-table-container {
+  inline-size: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.table-container {
+  inline-size: 100%;
+  border-collapse: collapse;
+  font-family: "Inter";
+  color: var(--normal-text);
+}
+
+td.cell,
+th.header {
+  border: 1px solid var(--primary-outline);
+  padding: 1%;
+  min-width: 3em;
+  font-size: 14px;
+  /* border-right: 1px solid var(--primary-outline); */
+}
+th.header {
+  border-top: unset;
+  border-bottom: 2px solid var(--primary-outline);
+  color: var(--primary-text);
+}
