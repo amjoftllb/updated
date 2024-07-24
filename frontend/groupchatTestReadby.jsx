@@ -3,7 +3,7 @@ import io from 'socket.io-client';
 
 const socket = io('http://localhost:8000'); // Replace with your server URL
 
-const Chat = ({ roomId, userId }) => {
+const ChatRoom = ({ roomId, userId }) => {
   const [messages, setMessages] = useState([]);
   const [text, setText] = useState('');
   const messageEndRef = useRef(null);
@@ -98,4 +98,66 @@ const Chat = ({ roomId, userId }) => {
   );
 };
 
-export default Chat;
+export default ChatRoom;
+
+//App.jsx file
+
+
+// import React, { useState } from 'react';
+// import io from 'socket.io-client';
+// import ChatRoom from './ChatRoom';
+
+// const socket = io('http://localhost:8000'); // Replace with your server URL
+
+// const App = () => {
+//   const [roomId, setRoomId] = useState('');
+//   const [userId, setUserId] = useState('');
+//   const [joined, setJoined] = useState(false);
+
+//   const handleRoomChange = (e) => {
+//     setRoomId(e.target.value);
+//   };
+
+//   const handleUserChange = (e) => {
+//     setUserId(e.target.value);
+//   };
+
+//   const handleJoinRoom = () => {
+//     if (roomId && userId) {
+//       // Emit a joinRoom event to the server
+//       socket.emit('joinRoom', roomId);
+
+//       // Set the state to indicate the user has joined the room
+//       setJoined(true);
+//     } else {
+//       alert('Please provide both room ID and user ID.');
+//     }
+//   };
+
+//   return (
+//     <div>
+//       {!joined ? (
+//         <div>
+//           <input
+//             type="text"
+//             value={roomId}
+//             onChange={handleRoomChange}
+//             placeholder="Enter Room ID"
+//           />
+//           <input
+//             type="text"
+//             value={userId}
+//             onChange={handleUserChange}
+//             placeholder="Enter User ID"
+//           />
+//           <button onClick={handleJoinRoom}>Join Room</button>
+//         </div>
+//       ) : (
+//         <ChatRoom roomId={roomId} userId={userId} />
+//       )}
+//     </div>
+//   );
+// };
+
+// export default App;
+
