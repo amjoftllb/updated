@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import io from 'socket.io-client';
 
 const socket = io('http://localhost:8000'); // Replace with your server URL
@@ -32,9 +32,35 @@ const Chat = ({ roomId, userId }) => {
     setText('');
   };
 
-  const markMessageAsRead = (messageId) => {
+  const markMessageAsRead = useCallback((messageId) => {
     socket.emit('markMessageAsRead', { roomId, messageId, userId });
-  };
+  }, [roomId, userId]);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const messageId = entry.target.getAttribute('data-id');
+            const message = messages.find((msg) => msg._id === messageId);
+
+            // Check if the message has already been read by the current user
+            if (message && !message.readBy.some((rb) => rb.userId === userId && rb.isRead)) {
+              markMessageAsRead(messageId);
+            }
+          }
+        });
+      },
+      { threshold: 0.1 } // Adjust this threshold as needed
+    );
+
+    const messageElements = document.querySelectorAll('.message');
+    messageElements.forEach((element) => observer.observe(element));
+
+    return () => {
+      messageElements.forEach((element) => observer.unobserve(element));
+    };
+  }, [messages, markMessageAsRead, userId]);
 
   useEffect(() => {
     messageEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -44,10 +70,11 @@ const Chat = ({ roomId, userId }) => {
     <div>
       <div>
         {messages.map((message) => (
-          <div key={message._id}>
-            <strong>{message.sender}</strong>: {message.text}
-            {message.readBy.some((rb) => rb.userId === userId && rb.isRead) && <span> (Read)</span>}
-            <button onClick={() => markMessageAsRead(message._id)}>Mark as Read</button>
+          <div key={message._id} data-id={message._id} className="message">
+            <strong>{message.sender === userId ? "You" : message.sender}</strong>: {message.text}
+            {message.sender === userId && message.readBy.length > 0 && (
+              <span> (Read)</span>
+            )}
           </div>
         ))}
         <div ref={messageEndRef} />
