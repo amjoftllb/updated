@@ -11,17 +11,25 @@ const Chat = ({ roomId, userId }) => {
   useEffect(() => {
     socket.emit('joinRoom', roomId);
 
+    // Listen for chat history
+    socket.on('chatHistory', (room) => {
+      setMessages(room.messages);
+    });
+
+    // Listen for new messages
     socket.on('messageReceived', (updatedRoom) => {
       const roomMessages = updatedRoom.messages;
       setMessages(roomMessages);
     });
 
+    // Listen for message read updates
     socket.on('messageRead', (updatedRoom) => {
       const roomMessages = updatedRoom.messages;
       setMessages(roomMessages);
     });
 
     return () => {
+      socket.off('chatHistory');
       socket.off('messageReceived');
       socket.off('messageRead');
     };
