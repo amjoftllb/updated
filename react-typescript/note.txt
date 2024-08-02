@@ -1,0 +1,5 @@
+npx create-react-app my-app --template typescript
+
+
+npm install redux react-redux
+npm install @types/react-redux --save-dev
