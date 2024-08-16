@@ -12,6 +12,9 @@ const App = () => {
     country: '',
     agreeToTerms: false,
     dateOfBirth: '',
+    profileImage: null,
+    favoriteColor: '',
+    rangeValue: 50,
   };
 
   const validate = (values) => {
@@ -48,6 +51,12 @@ const App = () => {
     if (!values.dateOfBirth) {
       errors.dateOfBirth = 'Date of birth is required';
     }
+    if (!values.profileImage) {
+      errors.profileImage = 'Profile image is required';
+    }
+    if (!values.favoriteColor) {
+      errors.favoriteColor = 'Favorite color is required';
+    }
 
     return errors;
   };
@@ -57,8 +66,13 @@ const App = () => {
   };
 
   return (
-    <Formik initialValues={initialValues} validate={validate} onSubmit={onSubmit}>
-      {({ errors, touched }) => (
+    <Formik 
+    initialValues={initialValues} 
+    validate={validate} 
+    onSubmit={onSubmit}>
+
+
+      {({ errors, touched, setFieldValue }) => (
         <Form>
           <Field type="text" name="name" placeholder="Name" />
           {errors.name && touched.name && <div className="error">{errors.name}</div>}
@@ -72,6 +86,8 @@ const App = () => {
           <Field type="number" name="age" placeholder="Age" />
           {errors.age && touched.age && <div className="error">{errors.age}</div>}
 
+
+          {/*.............................. radi button ....................*/}
           <div>
             <label>
               <Field type="radio" name="gender" value="male" />
@@ -84,9 +100,17 @@ const App = () => {
             {errors.gender && touched.gender && <div className="error">{errors.gender}</div>}
           </div>
 
+            {/*.............................. radi button ....................*/}
+
+
+
+
           <Field as="textarea" name="bio" placeholder="Bio" />
           {errors.bio && touched.bio && <div className="error">{errors.bio}</div>}
 
+
+
+            {/*..............................select....................*/}
           <Field as="select" name="country">
             <option value="">Select your country</option>
             <option value="usa">USA</option>
@@ -95,6 +119,11 @@ const App = () => {
           </Field>
           {errors.country && touched.country && <div className="error">{errors.country}</div>}
 
+          {/*..............................select....................*/}
+
+
+
+          {/*..............................checkbox....................*/}
           <div>
             <label>
               <Field type="checkbox" name="agreeToTerms" />
@@ -103,8 +132,40 @@ const App = () => {
             {errors.agreeToTerms && touched.agreeToTerms && <div className="error">{errors.agreeToTerms}</div>}
           </div>
 
+          {/*..............................checkbox....................*/}
+
+
+
+
           <Field type="date" name="dateOfBirth" />
           {errors.dateOfBirth && touched.dateOfBirth && <div className="error">{errors.dateOfBirth}</div>}
+
+
+          {/*..............................Image....................*/}
+          <div>
+            <label>Profile Image:</label>
+            <input
+              type="file"
+              name="profileImage"
+              onChange={(event) => setFieldValue('profileImage', event.currentTarget.files[0])}
+            />
+            {errors.profileImage && touched.profileImage && <div className="error">{errors.profileImage}</div>}
+          </div>
+
+
+        {/*............................color....................*/}
+          <div>
+            <label>Favorite Color:</label>
+            <Field type="color" name="favoriteColor" />
+            {errors.favoriteColor && touched.favoriteColor && <div className="error">{errors.favoriteColor}</div>}
+          </div>
+          {/*............................color....................*/}
+
+          <div>
+            <label>Range:</label>
+            <Field type="range" name="rangeValue" min="0" max="100" />
+            <div>Selected Value: {initialValues.rangeValue}</div>
+          </div>
 
           <button type="submit">Submit</button>
         </Form>
