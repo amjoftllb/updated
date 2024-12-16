@@ -14,6 +14,10 @@ app.use(bodyParser.json());
 app.use(express.json({ extended: true }));
 app.use(cors(corsOptions));
 
+app.get("/api/health", (req, res) => {
+  res.status(200).json({ message: "Server is running" });
+});
+
 const storeRoutes = require("./src/routes/store");
 const customerRoutes = require("./src/routes/customer");
 const authRoutes = require("./src/routes/user");
